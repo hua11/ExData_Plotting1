@@ -3,11 +3,9 @@ head(data);names(data)
 
 # extract target Date index
 idx <- which(data$Date == "1/2/2007" | data$Date == "2/2/2007")
-length(idx)
 
 # subset Date 
 my.data <- data[idx,]
-head(my.data); tail(my.data)
 
 # change factor to numeric
 my.data[,3:9]  <- lapply(my.data[,3:9], as.numeric)
