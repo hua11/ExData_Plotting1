@@ -14,8 +14,11 @@ my.data[,3:9]  <- lapply(my.data[,3:9], as.numeric)
 x = seq(1, nrow(my.data),1)
 
 #plot2
-plot(x,my.data$Global_active_powe, type = 'n', xlim = c(0,2881), ylim = c(range(my.data$Global_active_powe)), xlab = "", ylab = "Global Active Power (kilowatts)", xaxt="n", yaxt = 'n')
-lines(1:2880,my.data$Global_active_powe, type = 's')
+x = seq(1, nrow(my.data),1)
+par(mfrow = c(1,1), mar= c(5,5,4,2)+0.1)
+
+plot(x,my.data$Global_active_powe, type = 'n', xlim = c(0,nrow(my.data)), ylim = c(range(my.data$Global_active_powe)), xlab = "", ylab = "Global Active Power (kilowatts)", xaxt="n", yaxt = 'n')
+lines(x,my.data$Global_active_powe, type = 's')
 axis(side = 1, at = c(1,1440,2880),labels = c("Thu","Fri","Sat"))
 axis(side = 2, at = c(1,1000,2000,3000),labels = c("0","2","4","6"))
 
